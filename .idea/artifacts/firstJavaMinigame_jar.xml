@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="firstJavaMinigame:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/firstJavaMinigame_jar</output-path>
+    <root id="archive" name="firstJavaMinigame.jar">
+      <element id="module-output" name="firstJavaMinigame" />
+    </root>
+  </artifact>
+</component>

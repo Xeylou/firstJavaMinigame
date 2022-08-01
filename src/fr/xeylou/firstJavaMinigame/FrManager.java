@@ -6,12 +6,12 @@ public class FrManager {
     static Character player = new Character();
     static Character enemy = new Character();
 
-    private static final String actionsSeparation = "--------------------------------------------------------------";
-    private static final String announcementSeparation = "============================================";
-    private static final String closeSeparation = "##############################";
+    private static final String actionsSeparation = "----------------------------------------------------------------------------";
+    private static final String announcementSeparation = "========================================================";
+    private static final String closeSeparation = "#######################################################";
 
     protected static void explanations() {
-        System.out.println("\n   Règles du jeu en français\n Vous devez battre votre ennemi, pour cela vous possédez 3 potions de soin et une arme\n Votre adversaire n'a pas de potion mais fait plus de dêgats par coups aque vous\n Une potion régénerera entièrement vos PV, cependant vous ne pourrez attaquer le même tour\n\n\n   Souhaitez-vous jouer ? (o/n)\n");
+        System.out.println("\n   Règles du jeu en français\n Vous devez battre votre ennemi, pour cela vous possédez 3 potions de soin et une arme\n Votre adversaire n'a pas de potion mais fait plus de dêgats par coups que vous\n Une potion régénérera entièrement vos PV, cependant vous ne pourrez attaquer le même tour\n\n\n   Souhaitez-vous jouer ? (o/n)\n");
         confirmationPlaying();
     }
 
@@ -27,7 +27,7 @@ public class FrManager {
             System.out.println("\n Vous venez de fermer le jeu\n\n" + closeSeparation);
         }
         else {
-            System.out.println("   Veuillez indiquer un caractère valide");
+            System.out.println("\n   Veuillez indiquer un caractère valide");
             confirmationPlaying();
         }
         sc.close();
@@ -48,7 +48,7 @@ public class FrManager {
             init(showActions);
         }
         else {
-            System.out.println("   Veuillez indiquer un caractère valide");
+            System.out.println("\n   Veuillez indiquer un caractère valide");
             confirmationShowActions();
         }
         sc.close();
@@ -57,7 +57,7 @@ public class FrManager {
     private static void init(boolean showActions) {
         if (enemy.isAlive()) {
             if (player.isAlive()) {
-                System.out.println("\n" + announcementSeparation+"\n Vous avez "+player.hp+" PV et "+player.potionsNumber+" potion(s)\n Votre ennemi possède "+enemy.hp+" PV\n\n Attaquer votre ennemi (a) ou utiliser une potion (p)?\n"+announcementSeparation+"\n");
+                System.out.println("\n" + announcementSeparation+"\n Vous avez "+player.hp+" PV et "+player.potionsNumber+" potion(s)\n Votre ennemi possède "+enemy.hp+" PV\n\n Attaquer votre ennemi (a) ou utiliser une potion (p) ?\n"+announcementSeparation+"\n");
                 Scanner sc = new Scanner(System.in);
                 char c = sc.next().charAt(0);
                 if (c == 'a') {
@@ -78,7 +78,8 @@ public class FrManager {
                     byte enemyAttackDammage = enemy.enemyAttack();
                     player.hpAfterAttack(enemyAttackDammage);
                     if (showActions) {
-                        System.out.println('\n'+actionsSeparation+"\n Vous avez décidé de boire une potion et vos PV sont à nouveau à leur maximum !\n Juste après cela, votre ennemi vous a attaqué faisant  "+enemyAttackDammage+" dêgats\n"+actionsSeparation+'\n');
+                        System.out.println('\n'+actionsSeparation+"----\n Vous avez décidé de boire une potion et vos PV sont à nouveau à leur maximum !\n Juste après cela, votre ennemi vous a attaqué faisant "+enemyAttackDammage+" dêgats\n"+actionsSeparation+"----\n");
+                        // awful method to concatenate strings after actionsSeparation but i do not want to create a new String
                     }
                     init(showActions);
                 }
