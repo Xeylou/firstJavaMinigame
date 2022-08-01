@@ -1,7 +1,5 @@
 package fr.xeylou.firstJavaMinigame;
 
-import java.util.Random;
-
 public class Character {
 
     byte hp = 58;
@@ -11,8 +9,9 @@ public class Character {
         return this.hp > 0;
     }
 
-    protected byte hpNumber() {
-        return this.hp;
+
+    protected void hpAfterAttack(byte inputDamage) {
+        this.hp -= inputDamage;
     }
 
     protected void usePotion() {
@@ -21,17 +20,15 @@ public class Character {
     }
 
     protected byte enemyAttack() {
-        byte min = 5;
-        byte max = 15;
-        byte random = (byte)Math.floor(Math.random()*(max-min+1)+min);
-        return random;
+        byte minDamage = 5;
+        byte maxDamage = 15;
+        return (byte)Math.floor(Math.random()*(maxDamage-minDamage+1)+minDamage);
     }
 
     protected byte playerAttack() {
-        byte min = 5;
-        byte max = 10;
-        byte random = (byte)Math.floor(Math.random()*(max-min+1)+min);
-        return random;
+        byte minDamage = 5;
+        byte maxDamage = 10;
+        return (byte)Math.floor(Math.random()*(maxDamage-minDamage+1)+minDamage);
     }
 
     protected void resetCharacter() {
