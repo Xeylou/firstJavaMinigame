@@ -12,7 +12,7 @@ public class EnManager {
     private static final String closeSeparation = "##############################";
 
     protected static void explanations() {
-        System.out.println("\n blabla+would you like to play?(y/n)\n");
+        System.out.println("\n   Here are the rules of the game in English\n You need to defeat an enemy, for that you have 3 potions of healing and a weapon\n Your opponent has no potion but makes more damage than you and your weapon\n A potion will give your HP full back but you can not attack in the same round you use it\n\n\n   Would you like to play?(y/n)\n");
         confirmationPlaying();
     }
 
@@ -28,7 +28,7 @@ public class EnManager {
             System.out.println("\n You closed the game\n\n" + closeSeparation);
         }
         else {
-            System.out.println(" Please enter a valid character");
+            System.out.println("   Please enter a valid character");
             confirmationPlaying();
         }
         sc.close();
@@ -49,7 +49,7 @@ public class EnManager {
             init(showActions);
         }
         else {
-            System.out.println(" Please enter a valid character");
+            System.out.println("   Please enter a valid character");
             confirmationShowActions();
         }
         sc.close();
@@ -62,6 +62,7 @@ public class EnManager {
                 Scanner sc = new Scanner(System.in);
                 char c = sc.next().charAt(0);
                 if (c == 'a') {
+                    player.incrementStrokesNumber();
                     byte playerPreviousHp = player.hp;
                     byte enemyPreviousHp = enemy.hp;
                     byte playerAttackDamage = player.playerAttack();
@@ -83,18 +84,18 @@ public class EnManager {
                     init(showActions);
                 }
                 else {
-                    System.out.println("\n Please enter a valid action character\n");
+                    System.out.println("\n   Please enter a valid action character\n");
                     init(showActions);
                 }
                 sc.close();
             }
             else {
-                System.out.println("\n u dead\n try again?(y/n)\n");
+                System.out.println("\n Your enemy managed to kill you!\n\n\n   Would you try again?(y/n)\n");
                 confirmationPlaying();
             }
         }
         else {
-            System.out.println("\n u won\n play again?(y/n)\n");
+            System.out.println("\n Congratulations! You have finished with your opponent\n It took you "+player.strokesNumber+" strokes and "+player.usedPotionsNumber+" potion(s) for this\n\n"+closeSeparation+"\n\n   Would you like to play again?(y/n)\n");
             confirmationPlaying();
         }
     }

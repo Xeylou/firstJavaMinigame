@@ -4,6 +4,8 @@ public class Character {
 
     byte hp = 58;
     byte potionsNumber = 3;
+    byte usedPotionsNumber;
+    byte strokesNumber;
 
     protected boolean isAlive() {
         return this.hp > 0;
@@ -17,6 +19,7 @@ public class Character {
     protected void usePotion() {
         this.potionsNumber -= 1;
         this.hp = 58;
+        this.usedPotionsNumber++;
     }
 
     protected byte enemyAttack() {
@@ -31,8 +34,14 @@ public class Character {
         return (byte)Math.floor(Math.random()*(maxDamage-minDamage+1)+minDamage);
     }
 
+    protected void incrementStrokesNumber() {
+        this.strokesNumber ++;
+    }
+
     protected void resetCharacter() {
         this.hp = 58;
         this.potionsNumber = 3;
+        this.usedPotionsNumber = 0;
+        this.strokesNumber = 0;
     }
 }
