@@ -1,6 +1,10 @@
 package fr.xeylou.firstJavaMinigame;
 
 public class FrManager {
+
+    protected static void explanations() {
+
+    }
     protected static void confirmationPlaying() {
 
     }
