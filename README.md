@@ -1,4 +1,6 @@
 # firstJavaMinigame
-my first java minigame base on a python training project
+my first java minigame based on a python training project
+its my first truly first project in java
 
-- explanations
+i was inspired by an existing python course project:
+https://www.docstring.fr/formations/jeu-de-role-dans-le-terminal/introduction-au-projet-1770/
