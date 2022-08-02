@@ -81,10 +81,10 @@ public class EnManager {
                         break;
                     case 'p':
                         player.usePotion();
-                        byte enemyAttackDammage = enemy.enemyAttack();
-                        player.hpAfterAttack(enemyAttackDammage);
+                        enemyAttackDamage = enemy.enemyAttack();
+                        player.hpAfterAttack(enemyAttackDamage);
                         if (showActions) {
-                            System.out.println('\n'+actionsSeparation+"\n You decided to use a potion and you have now your HP full back!\n After that, your enemy attack you and did "+enemyAttackDammage+" damage\n"+actionsSeparation+'\n');
+                            System.out.println('\n'+actionsSeparation+"\n You decided to use a potion and you have now your HP full back!\n After that, your enemy attack you and did "+enemyAttackDamage+" damage\n"+actionsSeparation+'\n');
                         }
                         init(showActions);
                         break;

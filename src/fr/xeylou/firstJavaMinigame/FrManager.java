@@ -9,12 +9,10 @@ public class FrManager {
     private static final String actionsSeparation = "----------------------------------------------------------------------------";
     private static final String announcementSeparation = "========================================================";
     private static final String closeSeparation = "#######################################################";
-
     protected static void explanations() {
         System.out.println("\n   Règles du jeu en français\n Vous devez battre votre ennemi, pour cela vous possédez 3 potions de soin et une arme\n Votre adversaire n'a pas de potion mais fait plus de dêgats par coups que vous\n Une potion régénérera entièrement vos PV, cependant vous ne pourrez attaquer le même tour\n\n\n   Souhaitez-vous jouer ? (o/n)\n");
         confirmationPlaying();
     }
-
     protected static void confirmationPlaying() {
         Scanner sc = new Scanner(System.in);
         char c = sc.next().charAt(0);
@@ -22,7 +20,7 @@ public class FrManager {
             case 'o':
                 player.resetCharacter();
                 enemy.resetCharacter();
-                confirmationShowActions();
+                confirmationShowingActions();
                 break;
             case 'n':
                 System.out.println("\n Vous venez de fermer le jeu\n\n" + closeSeparation);
@@ -35,7 +33,7 @@ public class FrManager {
         sc.close();
     }
 
-    private static void confirmationShowActions() {
+    private static void confirmationShowingActions() {
         System.out.println("\n   Voulez-vous que les actions soient affichés chaque tours ? (o/n)\n");
         Scanner sc = new Scanner(System.in);
         char c = sc.next().charAt(0);
@@ -52,7 +50,7 @@ public class FrManager {
                 break;
             default:
                 System.out.println("\n   Veuillez indiquer un caractère valide");
-                confirmationShowActions();
+                confirmationShowingActions();
                 break;
         }
         sc.close();
@@ -80,11 +78,11 @@ public class FrManager {
                         break;
                     case 'p':
                         player.usePotion();
-                        byte enemyAttackDammage = enemy.enemyAttack();
-                        player.hpAfterAttack(enemyAttackDammage);
+                        enemyAttackDamage = enemy.enemyAttack();
+                        player.hpAfterAttack(enemyAttackDamage);
                         if (actionsPrompted) {
-                            System.out.println('\n'+actionsSeparation+"----\n Vous avez décidé de boire une potion et vos PV sont à nouveau à leur maximum !\n Juste après cela, votre ennemi vous a attaqué faisant "+enemyAttackDammage+" dêgats\n"+actionsSeparation+"----\n");
-                            // awful method to concatenate strings after actionsSeparation but i do not want to create a new String
+                            System.out.println('\n'+actionsSeparation+"----\n Vous avez décidé de boire une potion et vos PV sont à nouveau à leur maximum !\n Juste après cela, votre ennemi vous a attaqué faisant "+enemyAttackDamage+" dêgats\n"+actionsSeparation+"----\n");
+                            // awful method to concatenate strings after actionsSeparation, but I do not want to create a new String
                         }
                         init(actionsPrompted);
                         break;
