@@ -11,7 +11,6 @@ public class Character {
         return this.hp > 0;
     }
 
-
     protected void hpAfterAttack(byte inputDamage) {
         this.hp -= inputDamage;
     }

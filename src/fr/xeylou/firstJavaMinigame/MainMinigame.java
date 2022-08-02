@@ -11,17 +11,19 @@ public class MainMinigame {
         System.out.println("\n   Please select a language\n     FRENCH - fr_FR (1)\n     ENGLISH - en_UK (2)\n");
         Scanner englishRequested = new Scanner(System.in);
         byte number = englishRequested.nextByte();
-        if (number == 2) {
-            EnManager manager = new EnManager();
-            manager.explanations();
-        }
-        else if (number == 1) {
-            FrManager manager = new FrManager();
-            manager.explanations();
-        }
-        else {
-            System.out.println("\n Please enter a valid character\n");
-            languageSelection();
+        switch (number) {
+            case 2:
+                EnManager en = new EnManager();
+                en.explanations();
+                break;
+            case 1:
+                FrManager fr = new FrManager();
+                fr.explanations();
+                break;
+            default:
+                System.out.println("\n Please enter a valid character\n");
+                languageSelection();
+                break;
         }
         englishRequested.close();
     }
