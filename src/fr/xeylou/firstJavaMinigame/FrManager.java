@@ -20,13 +20,14 @@ public class FrManager {
             case 'o':
                 player.resetCharacter();
                 enemy.resetCharacter();
+                System.out.println("\n   Voulez-vous que les actions soient affichés chaque tours ? (o/n)\n");
                 confirmationShowingActions();
                 break;
             case 'n':
                 System.out.println("\n Vous venez de fermer le jeu\n\n" + closeSeparation);
                 break;
             default:
-                System.out.println("\n   Veuillez indiquer un caractère valide");
+                System.out.println("\n   Veuillez indiquer un caractère valide\n");
                 confirmationPlaying();
                 break;
         }
@@ -34,7 +35,6 @@ public class FrManager {
     }
 
     private static void confirmationShowingActions() {
-        System.out.println("\n   Voulez-vous que les actions soient affichés chaque tours ? (o/n)\n");
         Scanner sc = new Scanner(System.in);
         char c = sc.next().charAt(0);
         switch (c){
@@ -44,12 +44,12 @@ public class FrManager {
                 init(showActions);
                 break;
             case 'n':
-                System.out.println("\n Les actions ne s'afficheront pas");
+                System.out.println("\n Les actions ne s'afficheront pas entre les tours\n");
                 boolean hideActions = true;
                 init(hideActions);
                 break;
             default:
-                System.out.println("\n   Veuillez indiquer un caractère valide");
+                System.out.println("\n   Veuillez indiquer un caractère valide\n");
                 confirmationShowingActions();
                 break;
         }

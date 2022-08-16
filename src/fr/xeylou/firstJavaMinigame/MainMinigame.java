@@ -21,7 +21,7 @@ public class MainMinigame {
                 FrManager.explanations();
                 break;
             default:
-                System.out.println("\n Please enter a valid character\n");
+                System.out.println("\n Please enter a valid character");
                 languageSelection();
                 break;
         }

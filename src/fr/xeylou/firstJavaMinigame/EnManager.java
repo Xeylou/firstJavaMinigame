@@ -23,13 +23,14 @@ public class EnManager {
             case 'y':
                 player.resetCharacter();
                 enemy.resetCharacter();
+                System.out.println("\n   Would you like to see actions between laps?(y/n)\n");
                 confirmationShowActions();
                 break;
             case 'n':
                 System.out.println("\n You closed the game\n\n" + closeSeparation);
                 break;
             default:
-                System.out.println("\n   Please enter a valid character");
+                System.out.println("\n   Please enter a valid character\n");
                 confirmationPlaying();
                 break;
         }
@@ -37,7 +38,6 @@ public class EnManager {
     }
 
     private static void confirmationShowActions() {
-        System.out.println("\n   Would you like to see actions between laps?(y/n)\n");
         Scanner sc = new Scanner(System.in);
         char c = sc.next().charAt(0);
         switch (c) {
@@ -47,12 +47,12 @@ public class EnManager {
                 init(showActions);
                 break;
             case 'n':
-                System.out.println("\n Actions will not show off between laps");
+                System.out.println("\n Actions will not show off between laps\n");
                 boolean hideActions = false;
                 init(hideActions);
                 break;
             default:
-                System.out.println("\n   Please enter a valid character");
+                System.out.println("\n   Please enter a valid character\n");
                 confirmationShowActions();
                 break;
         }
@@ -89,7 +89,7 @@ public class EnManager {
                         init(showActions);
                         break;
                     default:
-                        System.out.println("\n   Please enter a valid action character\n");
+                        System.out.println("\n   Please enter a valid action character\n\n");
                         init(showActions);
                         break;
                 }
